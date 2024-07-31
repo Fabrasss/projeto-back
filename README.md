@@ -1,6 +1,6 @@
 # Equipe 1 - Participantes:
 - fabras
-- luciano
+- luciano - https://github.com/Luciano-Lima-LL
 - ian
 - gabriella rls
 - italo silva - https://github.com/italosilvacb
