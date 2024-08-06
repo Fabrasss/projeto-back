@@ -1,27 +1,34 @@
 const service = require('../services/usuariosServices')
 const model = require('../models/usuarios')
-const createUser = async (req,res) => {
+const createUser = async (req, res) => {
     service.createUser(req.query)
     res.send(console.log('usuario cadastrado com sucesso'))
 }
 
-const listUser = async (req,res) => {
+const listUser = async (req, res) => {
     const list = await service.listUser()
     res.send(list)
 }
 
-const updateUser = async (req,res) => {
+
+const listUserId = async (req, res) => {
+    const list = await service.listUserId(req.params.id)
+    res.send(list)
+}
+
+const updateUser = async (req, res) => {
     await service.updateUser(req.query)
     res.send(await service.listUser())
     console.log(req.query)
 }
-const deleteUser = async (req,res) => {
+const deleteUser = async (req, res) => {
     await service.deleteUser(req.query.id)
     res.send(await service.listUser())
 }
 
 module.exports = {
     createUser,
+    listUserId,
     listUser,
     updateUser,
     deleteUser
