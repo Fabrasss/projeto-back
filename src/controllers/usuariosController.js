@@ -22,7 +22,7 @@ const updateUser = async (req, res) => {
     console.log(req.query)
 }
 const deleteUser = async (req, res) => {
-    await service.deleteUser(req.query.id)
+    await service.deleteUser(req.params.id)
     res.send(await service.listUser())
 }
 

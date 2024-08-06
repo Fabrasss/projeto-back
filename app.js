@@ -7,5 +7,5 @@ app.use('/v1/user', routerUser)
         
         
 app.listen(10000, () => {
-    console.log('http://localhost:3000/')
+    console.log('http://localhost:10000/')
 })
