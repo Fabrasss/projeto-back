@@ -1,7 +1,13 @@
 const { Sequelize, DataTypes } = require('sequelize');
-const sequelize = new Sequelize('dc','root','1234',{
-    host:'localhost',
-    dialect:'mysql'
+const sequelize = new Sequelize('root_h78r','root_h78r_user','vm77RQXROddJlkmxxXO5C2CsdXX0g64Y',{
+    host:'dpg-cqp1g90gph6c73ff38eg-a.oregon-postgres.render.com',
+    dialect:'postgres',
+    dialectOptions: {
+        ssl: {
+            require: true,
+            rejectUnauthorized: false
+        }
+    }
 })
 
 const Usuarios = sequelize.define('usuarios', {
