@@ -1,0 +1,16 @@
+{
+    "editor.hover.above": true,
+    "editor.hover.enabled": false,
+    "editor.hover.sticky": true,
+    "html.hover.references": true,
+    "css.hover.documentation": true,
+    "less.hover.documentation": true,
+    "css.hover.references": true,
+    "less.hover.references": true,
+    "scss.hover.documentation": true,
+    "scss.hover.references": true,
+    "accessibility.verbosity.hover": true,
+    "npm.scriptHover": true,
+    "editor.hideCursorInOverviewRuler": true,
+    "editor.hover.delay": 10000
+}
