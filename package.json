@@ -2,9 +2,9 @@
   "name": "projeto-back",
   "version": "1.0.0",
   "description": "- fabras\r - luciano\r - ian\r - gabriella rls\r - italo silva - https://github.com/italosilvacb\r - antoniel\r - italo emidio - https://github.com/Italo-Emidio",
-  "main": "app.js",
+  "main": "src/app.js",
   "scripts": {
-    "dev": "nodemon app.js"
+    "dev": "nodemon ./src/app.js"
   },
   "author": "",
   "license": "ISC",
