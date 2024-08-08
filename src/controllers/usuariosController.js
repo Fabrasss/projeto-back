@@ -1,7 +1,7 @@
 const service = require('../services/usuariosServices')
 const model = require('../models/usuarios')
 const createUser = async (req, res) => {
-    service.createUser(req.query)
+    service.createUser(req.body)
     res.send(console.log('usuario cadastrado com sucesso'))
 }
 

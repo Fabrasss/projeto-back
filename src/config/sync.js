@@ -5,9 +5,9 @@ const Categorias = require('../models/categorias');
 const Produtos = require('../models/produtos');
 (async () => {
     try {
-        await Usuarios.sync({ force: true }); 
-        await Categorias.sync({ force: true }); 
-        await Produtos.sync({ force: true }); 
+        await Usuarios.sync(); 
+        await Categorias.sync(); 
+        await Produtos.sync(); 
         console.log('Tabelas sincronizadas com sucesso.');
     } catch (error) {
         console.error('Erro ao sincronizar as tabelas:', error);

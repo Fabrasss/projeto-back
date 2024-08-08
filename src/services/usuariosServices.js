@@ -2,8 +2,7 @@ const model = require('../models/usuarios')
 
 const createUser = async (data) => {
     try {
-        const { firstname, surname, email, password } = data
-        model.create({ firstname, surname, email, password })
+        model.create(data)
     } catch (error) {
         console.log('usuarios não cadastrado: ' + error)
     }
