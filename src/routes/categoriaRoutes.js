@@ -3,7 +3,7 @@ const Controller = require('../controllers/categoriaController')
 const router = express.Router()
 
 router.get('/search', Controller.list)
-
+router.post('/create',Controller.create)
 
 module.exports = router
 
