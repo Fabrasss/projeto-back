@@ -1,8 +1,9 @@
 const { Sequelize, DataTypes } = require('sequelize');
 require('dotenv').config()
-const sequelize = new Sequelize('postgresql://postgres.nrgysfupywxfpswtyoac:queroumdb123@aws-0-sa-east-1.pooler.supabase.com:6543/postgres')
 
-sequelize.authenticate()
+const chuchu = new Sequelize('postgresql://postgres.nrgysfupywxfpswtyoac:queroumdb123@aws-0-sa-east-1.pooler.supabase.com:6543/postgres')
+
+chuchu.authenticate()
     .then(() => {
         console.log('Conexão com o banco de dados estabelecida com sucesso.');
     })
@@ -11,7 +12,4 @@ sequelize.authenticate()
     });
 
 
-module.exports = {
-    Sequelize: 'Sequelize',
-    sequelize: 'sequelize'
-}
+module.exports = chuchu

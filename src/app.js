@@ -7,7 +7,6 @@ const bodyParser = require('body-parser');
 const RouterCategory = require('./routes/categoriaRoutes.js')
 
 app.use(bodyParser.json());
-app.use(express.urlencoded({extended: true}))
 app.use('/v1/user', routerUser)       
 app.use('/v1/category',RouterCategory)
 app.listen(10000, () => {
