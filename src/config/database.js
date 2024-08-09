@@ -1,6 +1,6 @@
 const { Sequelize, DataTypes } = require('sequelize');
 require('dotenv').config()
-const sequelize = new Sequelize('postgresql://postgres.nrgysfupywxfpswtyoac:@aws-0-sa-east-1.pooler.supabase.com:6543/postgres')
+const sequelize = new Sequelize(`postgresql://postgres.nrgysfupywxfpswtyoac:${process.env.senha_db}@aws-0-sa-east-1.pooler.supabase.com:6543/postgres`)
 
 sequelize.authenticate()
     .then(() => {
