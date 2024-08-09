@@ -11,7 +11,4 @@ sequelize.authenticate()
     });
 
 
-module.exports = {
-    Sequelize: 'Sequelize',
-    sequelize: 'sequelize'
-}
+module.exports = sequelize
