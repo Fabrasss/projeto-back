@@ -1,6 +1,5 @@
-const { Sequelize, DataTypes } = require('sequelize');
-const sequelize = new Sequelize(`postgresql://postgres.nrgysfupywxfpswtyoac:${process.env.senha_db}@aws-0-sa-east-1.pooler.supabase.com:6543/postgres`)
-
+const { DataTypes } = require('sequelize');
+const sequelize = require('../config/database.js')
 const Produtos = sequelize.define('produtos',{
     id: {
         type: DataTypes.INTEGER,
