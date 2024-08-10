@@ -1,12 +1,36 @@
-const express = require('express')
-var cors = require('cors')
-// DESESTRUTURACAO
-const { Sequelize, DataTypes, QueryTypes } = require('sequelize');
-const app = express()
-const port = 3000   
+const app = require('./app-express.js')
 
-const sequelize = new Sequelize('postgresql://postgres.fqvrpotctjxyrrryjnlg:adorocookiess!@aws-0-sa-east-1.pooler.supabase.com:6543/postgres')
+const { User } = require('../models/Models.js');
 
 app.get('/', (req, res) => {
-    res.send('requisição GET à homepage')
-  })
+    res.send('Olá, mundo')
+})
+
+app.get('/v1/user/:id', (request, res) => {
+    console.log('request.url', request.url) // debug
+    console.log('request.params.id', request.params.id)
+
+    User.findOne({ where: { id: request.params.id } })
+        .then((result) => res.send(result))
+})
+
+app.post('/v1/user', (request, res) => {
+    console.log('request.url', request.url) // debug
+    console.log('request.body', request.body)
+
+    User.create(request.body).then((result) => res.status(201).send(result))
+})
+
+
+app.put('/v1/user/:id', (request, res) => {
+    console.log('request.url', request.url) // debug
+    console.log('request.body', request.body)
+    User.update(request.body, { where: { id: request.params.id } }).then((result) => res.send(result))
+})
+
+app.delete('/v1/user/:id', (request, res) => {
+    console.log('request.url', request.url) // debug
+    User.destroy({ where: { id: request.params.id } }).then((result) => {
+        res.send('deletei com sucesso essa quantidade de linhas: '+result)
+    })
+})
