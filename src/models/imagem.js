@@ -1,6 +1,8 @@
 const { DataTypes } = require('sequelize');
 const sequelize = require('../config/database.js')
-const Categorias = sequelize.define('categorias', {
+const Produtos = require('./produtos.js')
+
+const imagens = sequelize.define('imagens', {
     id: {
         type: DataTypes.INTEGER,
         autoIncrement: true,
@@ -8,18 +10,26 @@ const Categorias = sequelize.define('categorias', {
     },
     product_id: {
         type: DataTypes.INTEGER,
-        allowNull: false
+        allowNull: false,
+        references: {
+            model: Produtos,
+            key: 'id'
+          },
     },
     enabled: {
-        type: DataTypes.BOOLEAN,
+        type: DataTypes.STRING,
         allowNull: false
     },
     path: {
         type: DataTypes.STRING,
-        defaultValue: false
-    }
+        allowNull: true
+    },
+   
 }, {
     timestamps: true 
 });
 
-module.exports = Categorias
+Produtos.hasMany(imagens, { foreignKey: 'product_id' });
+imagens.belongsTo(Produtos);
+
+module.exports = imagens

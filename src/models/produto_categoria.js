@@ -1,4 +1,3 @@
-// src/models/produtoCategoria.js
 const { DataTypes } = require('sequelize');
 const sequelize = require('../config/database');
 const Produtos = require('./produtos');
