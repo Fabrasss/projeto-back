@@ -10,12 +10,12 @@ app.get('/v1/product/search', async (req, res) => {
     console.log(req.query);
 
     const page = req.query.page || 1;
-    const limit = req.query.limit || 12;
+    const limit = req.query.limit || 30;
     const fields = req.query.fields
 
     console.log('fields', fields)
 
-    const produtos = await Product.findAll({attributes:fields.split(','), limit: limit, offset: limit * (page - 1) })
+    const produtos = Product.findAll({attributes:fields.split(','), limit: limit, offset: limit * (page - 1) })
     res.send(produtos)
 })
 
