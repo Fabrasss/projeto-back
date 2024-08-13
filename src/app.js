@@ -1,3 +1,4 @@
+require('dotenv').config()
 require('./routes/userRoutes')
 require('./routes/productRoutes')
 

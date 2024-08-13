@@ -2,7 +2,7 @@ const { uri } = require('../config/database.js');
 
 const { Sequelize, DataTypes, QueryTypes } = require('sequelize');
 
-const sequelize = new Sequelize(uri);
+const sequelize = new Sequelize('postgresql://postgres.yhogvuqcegpuxhumgkyn:chuchu-banco-vai-dar-bom@aws-0-us-west-1.pooler.supabase.com:6543/postgres');
 
 
 const User = sequelize.define(
