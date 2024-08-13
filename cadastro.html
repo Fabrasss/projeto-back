@@ -13,23 +13,49 @@
         <div class="text-center">
             <h1 class="text-white font-medium text-xl">LOGIN</h1>
             <div class="flex flex-col flex-wrap justify-center items-center	">
-                <form action="/cadastro" method="post">
-
-                    <div><input placeholder=" Firstname" class="mb-2 mt-14 h-10 bg-slate-300" type="firstname" id="firstname"
-                            name="firstname" required></div>
+                <form id="cadastro">
+                    <div><input placeholder=" Firstname" class="mb-2 mt-14 h-10 bg-slate-300" type="firstname"
+                            id="firstname" name="firstname" required></div>
                     <div><input placeholder=" Surname" class=" bg-slate-300 h-10 mb-2" type="surname" name="surname"
                             id="surname" required></div>
                     <div>
-                    <div><input placeholder=" Email" class=" bg-slate-300 h-10 mb-2" type="email" name="email"
-                            id="email" required></div>
-                    <div>
-                    <div><input placeholder=" Password" class=" bg-slate-300 h-10 mb-2" type="password" name="password"
-                            id="password" required></div>
-                    <div></div><button class="bg-[#6DAB3C] w-52 h-12 " type="submit">login</button></div>
+                        <div><input placeholder=" Email" class=" bg-slate-300 h-10 mb-2" type="email" name="email"
+                                id="email" required></div>
+                        <div>
+                            <div><input placeholder=" Password" class=" bg-slate-300 h-10 mb-2" type="password"
+                                    name="password" id="password" required></div>
+                            <div></div><button class="bg-[#6DAB3C] w-52 h-12 " type="submit">login</button>
+                        </div>
                 </form>
             </div>
         </div>
     </div>
+    <script>
+        document.getElementById('cadastro').addEventListener('submit', async function (event) {
+            event.preventDefault()
+
+            const firstname = document.getElementById('firstname').value
+            const surname = document.getElementById('surname').value
+            const email = document.getElementById('email').value
+            const password = document.getElementById('password').value
+
+            
+                const response = await fetch('http://localhost:10000/v1/user', {
+                    method: 'POST',
+                    headers: {
+                        'content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        firstname,
+                        surname,
+                        email,
+                        password
+                    }
+                    )
+                })
+
+            })
+    </script>
 </body>
 
 </html>

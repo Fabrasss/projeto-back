@@ -13,7 +13,7 @@
         <div class="text-center">
             <h1 class="text-white font-medium text-xl">LOGIN</h1>
             <div class="flex flex-col flex-wrap justify-center items-center	">
-                <form action="/login" method="post">
+                <form id="login">
 
                     <div><input placeholder=" Email" class="mb-7 mt-14 h-10 bg-slate-300" type="email" id="email"
                             name="email" required></div>
@@ -24,6 +24,28 @@
             </div>
         </div>
     </div>
+    <script>
+        document.getElementById('login').addEventListener('submit', async function (event) {
+            event.preventDefault()
+
+            const email = document.getElementById('email').value
+            const password = document.getElementById('password').value
+
+            if(email === undefined){
+                console.log(email)
+            }
+            const response = await fetch('http://localhost:10000/v1/user/token', {
+                method: 'POST',
+                headers: {
+                    'content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    email,
+                    password
+                })
+            })
+        })
+    </script>
 </body>
 
 </html>
