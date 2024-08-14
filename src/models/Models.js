@@ -86,6 +86,9 @@ const Product = sequelize.define(
     }
 )
 
+Category.belongsToMany(Product, {through: "ProductCategory"})
+Product.belongsToMany(Category, {through: "ProductCategory"})
+
 sequelize.sync();
 
 module.exports = {
