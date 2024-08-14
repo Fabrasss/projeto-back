@@ -31,9 +31,6 @@
             const email = document.getElementById('email').value
             const password = document.getElementById('password').value
 
-            if(email === undefined){
-                console.log(email)
-            }
             const response = await fetch('http://localhost:10000/v1/user/token', {
                 method: 'POST',
                 headers: {
@@ -44,6 +41,17 @@
                     password
                 })
             })
+
+            if(response.ok){
+                const data = await response.json()
+                const token = data.token
+
+                localStorage.setItem('accessToken',token)
+
+                console.log('login bem sucedido')
+            }else{
+                console.log('erro no login ')
+            }
         })
     </script>
 </body>
