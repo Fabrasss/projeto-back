@@ -9,14 +9,20 @@ app.get('/', (req, res) => {
 app.get('/v1/product/search', async (req, res) => {
     console.log(req.query);
 
-    const page = req.query.page || 1;
-    const limit = req.query.limit || 30;
+    const page = Number(req.query.page || 1);
+    const limit = Number(req.query.limit || 30);
     const fields = req.query.fields
 
     console.log('fields', fields)
 
-    const produtos = Product.findAll({attributes:fields.split(','), limit: limit, offset: limit * (page - 1) })
-    res.send(produtos)
+    const total = await Product.count()
+    const produtos = await Product.findAll({attributes:fields.split(','), limit: (limit), offset: (limit) * (page - 1) })
+    res.send({
+        data: produtos,
+        "total": total,
+        "limit": limit,
+        "page": page,
+    })
 })
 
 app.get('/v1/product/:id', (request, res) => {
