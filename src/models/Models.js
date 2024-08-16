@@ -85,6 +85,29 @@ const Product = sequelize.define(
         }
     }
 )
+const Image = sequelize.define('Image', {
+    enabled: {
+      type: DataTypes.BOOLEAN,
+      allowNull: false,
+      defaultValue: false
+    },
+    path: {
+        type: DataTypes.STRING,
+        allowNull: false
+
+    }
+  }, 
+  {
+    timestamps: true
+  });
+
+  const OptionProduct = sequelize
+
+  Product.hasMany(Image, { foreignKey: 'product_id' });
+  Image.belongsTo(Product);
+
+
+
 
 Category.belongsToMany(Product, {through: "ProductCategory"})
 Product.belongsToMany(Category, {through: "ProductCategory"})
